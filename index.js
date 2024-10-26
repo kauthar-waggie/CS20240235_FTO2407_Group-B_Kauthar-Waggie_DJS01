@@ -13,19 +13,19 @@ const d = 0; // distance (km)
 const fuel = 5000; // remaining fuel (kg)
 const fbr = 0.5; // fuel burn rate (kg/s)
 
-function calcNewVelocity({ acc, vel, time }) {
+function calcNewVelocity({ acc = 0, vel = 0, time = 0 }) {
   const velocityInMetersPerSecond = vel * (1000 / 3600);
   const newVelocityInMetersPerSecond = velocityInMetersPerSecond + acc * time;
   return newVelocityInMetersPerSecond * (3600 / 1000);
 }
 
-function calcNewDistance({d, vel, time }){
+function calcNewDistance({d = 0, vel = 0, time = 0 }){
   const velocityInMetersPerSecond = vel * (1000 / 3600);
   const newDistanceInMeters = d * 1000 + velocityInMetersPerSecond * time;
   return newDistanceInMeters / 1000;
 }
 
-function calcRemainingFuel({ fuel, fbr, time }) {
+function calcRemainingFuel({ fuel = 0, fbr = 0, time = 0 }) {
   return fuel - fbr * time;
 }
 
